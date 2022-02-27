@@ -1,0 +1,12 @@
+root = true
+charset = utf-8
+
+[*.json]
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
+indent_style = space
+insert_final_newline = true

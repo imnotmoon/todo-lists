@@ -1,9 +1,10 @@
 import React from 'react';
-import Layout from './_components/Layout/Layout';
+
+import Layout from "./_components/Layout/Layout";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Layout>hello world</Layout>
     </div>
   );

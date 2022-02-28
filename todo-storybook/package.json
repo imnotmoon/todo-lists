@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "todo-storybook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,8 +10,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
-    "@vanilla-extract/css": "^1.6.8",
-    "@vanilla-extract/recipes": "^0.2.3",
+    "node-sass": "^7.0.1",
     "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

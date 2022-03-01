@@ -2,7 +2,7 @@ import React from 'react';
 import './Layout.style.scss';
 
 type LayoutProps = {
-    children?: React.ReactChildren | React.ReactChild | null;
+    children?: React.ReactNode | null;
 };
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {

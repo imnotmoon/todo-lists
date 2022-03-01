@@ -22,6 +22,7 @@ export const useTodoListContext = () => {
 }
 
 const TodoListContext: React.FC<TodoListContextProps> = ({ children }) => {
+    // const { todoList, setTodoList } = {todoList: [], setTodoList: () => {}};
     const { todoList, setTodoList } = useLocalTodoList();
 
     return (

@@ -4,14 +4,17 @@ import { TodoType } from './TodoList.type';
 
 const useLocalTodoList = () => {
     const [todoList, setTodoList] = useState<TodoType[]>([]);
+
     useEffect(() => {
         const localStorageTodoItems = localStorage.getItem('@todolist');
-        if(!localStorageTodoItems) {
+
+        if(!localStorageTodoItems || localStorageTodoItems.length === 0) {
             localStorage.setItem('@todolist', JSON.stringify(todoList));
         } else {
-            setTodoList(JSON.parse(localStorageTodoItems));
+            (JSON.parse(localStorageTodoItems) as TodoType[]).length !== todoList.length
+                && setTodoList(JSON.parse(localStorageTodoItems));
         }
-    }, [ todoList ]);
+    }, [todoList]);
 
     return {todoList, setTodoList};
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, {useCallback, useContext} from 'react';
 
 import  { useTodoListContext } from "../TodoListContext/TodoListContext";
 import { TodoType } from "./TodoList.type";
@@ -11,10 +11,15 @@ type TodoListProps = {
 
 const TodoList: React.FC<TodoListProps> = ({}) => {
     const { todoList, setTodoList } = useTodoListContext();
+
+    const onClickButton = useCallback((e: React.MouseEvent) => {
+        console.log('button clicked');
+    }, []);
+
     return (
         <div>
             <div>
-                <Button label='할일 추가'/>
+                <Button label='할일 추가' onClick={onClickButton}/>
             </div>
             <section>
                 {todoList.map((todoItem: TodoType) => {

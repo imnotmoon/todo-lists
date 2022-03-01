@@ -5,6 +5,7 @@ import useInitTodoList from "./App.hook";
 import Layout from "./_components/Layout/Layout";
 import Header from "./_components/Header/Header";
 import TodoList from "./_components/TodoList/TodoList";
+import TodoListContext from "./_components/TodoListContext/TodoListContext";
 
 function App() {
   useInitTodoList();
@@ -13,7 +14,9 @@ function App() {
     <div className="App">
       <Layout>
           <Header />
-          <TodoList />
+          <TodoListContext>
+            <TodoList />
+          </TodoListContext>
       </Layout>
     </div>
   );

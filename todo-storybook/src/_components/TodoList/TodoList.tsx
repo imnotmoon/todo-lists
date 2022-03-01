@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import useLocalTodoList from "./useLocalTodoList";
-import {TodoType} from "./TodoList.type";
+import  { useTodoListContext } from "../TodoListContext/TodoListContext";
+import { TodoType } from "./TodoList.type";
 import TodoListItem from "./Item/TodoListItem";
 import Button from "../Button/Button";
 
@@ -10,7 +10,7 @@ type TodoListProps = {
 };
 
 const TodoList: React.FC<TodoListProps> = ({}) => {
-    const {todoList, setTodoList} = useLocalTodoList();
+    const { todoList, setTodoList } = useTodoListContext();
     return (
         <div>
             <div>

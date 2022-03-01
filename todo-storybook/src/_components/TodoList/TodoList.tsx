@@ -19,6 +19,10 @@ const TodoList: React.FC<TodoListProps> = ({}) => {
         dispatchModal("OPEN");
     }, []);
 
+    const onClickClose = useCallback(() => {
+        dispatchModal("CLOSE");
+    }, [])
+
     return (
         <>
             <div>
@@ -31,7 +35,7 @@ const TodoList: React.FC<TodoListProps> = ({}) => {
                     })}
                 </section>
             </div>
-            { modal && <Modal /> }
+            { modal && <Modal close={onClickClose} /> }
         </>
     )
 }

@@ -14,7 +14,7 @@ const useLocalTodoList = () => {
             (JSON.parse(localStorageTodoItems) as TodoType[]).length !== todoList.length
                 && setTodoList(JSON.parse(localStorageTodoItems));
         }
-    }, [todoList]);
+    }, [todoList, setTodoList]);
 
     return {todoList, setTodoList};
 }

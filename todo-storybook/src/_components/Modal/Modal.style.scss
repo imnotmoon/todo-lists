@@ -8,12 +8,22 @@
   justify-content: center;
 }
 
-.modal-window {
-  width: calc(max(50vw, 300px));
-  height: calc(max(50vh, 500px));
+.modal-form-window {
+  width: calc(min(50vw, 800px));
+  height: calc(min(50vh, 600px));
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  & > h3 {
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
 }
 
 .modal-window-buttons {
@@ -30,4 +40,11 @@
     color: white;
     border-radius: 5px;
   }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

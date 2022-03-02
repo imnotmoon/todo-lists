@@ -1,4 +1,4 @@
-import React, {createContext, useContext} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 
 import useLocalTodoList from "../TodoList/useLocalTodoList";
 import {TodoType} from "../TodoList/TodoList.type";
@@ -16,10 +16,6 @@ export const LocalTodoListContext = createContext<TodoListContextType>({
     todoList: [],
     setTodoList: () => {}
 });
-
-export const useTodoListContext = () => {
-    return useContext(LocalTodoListContext);
-}
 
 const TodoListContext: React.FC<TodoListContextProps> = ({ children }) => {
     const { todoList, setTodoList } = useLocalTodoList();

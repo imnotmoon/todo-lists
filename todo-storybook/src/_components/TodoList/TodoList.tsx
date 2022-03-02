@@ -1,6 +1,7 @@
-import React, { useCallback, useReducer } from 'react';
+import React, {useCallback, useContext, useReducer} from 'react';
 
-import  { useTodoListContext } from "../TodoListContext/TodoListContext";
+// import  { useTodoListContext } from "../TodoListContext/TodoListContext";
+import { LocalTodoListContext } from "../TodoListContext";
 import { TodoType } from "./TodoList.type";
 import TodoListItem from "./Item/TodoListItem";
 import Button from "../Button/Button";
@@ -12,7 +13,7 @@ type TodoListProps = {
 };
 
 const TodoList: React.FC<TodoListProps> = ({}) => {
-    const { todoList, setTodoList } = useTodoListContext();
+    const { todoList } = useContext(LocalTodoListContext);
     const [ modal, dispatchModal ] = useReducer(reducer, false);
 
     const onClickButton = useCallback((e: React.MouseEvent) => {
@@ -31,7 +32,7 @@ const TodoList: React.FC<TodoListProps> = ({}) => {
                 </div>
                 <section>
                     {todoList.map((todoItem: TodoType) => {
-                        return <TodoListItem item={todoItem} />;
+                        return <TodoListItem item={todoItem} key={todoItem.title +todoItem.timestamp.toString()}/>;
                     })}
                 </section>
             </div>

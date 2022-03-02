@@ -1,4 +1,5 @@
 import React from 'react';
+import './TodoListItem.style.scss';
 
 import {TodoType} from "../TodoList.type";
 
@@ -7,7 +8,11 @@ type TodoListItemProps = {
 };
 
 const TodoListItem: React.FC<TodoListItemProps> = ({ item }) => {
-    return null;
+    return (
+        <div className='todoitem'>
+            <div>{item.title}</div>
+        </div>
+    );
 }
 
 export default TodoListItem;

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Modal.style.scss';
 import { Formik, Form } from 'formik';
 
 import ModalForm from "./ModalForm";
 import {TodoType} from "../TodoList/TodoList.type";
-import useLocalTodoList from "../TodoList/useLocalTodoList";
+import { LocalTodoListContext } from "../TodoListContext";
 
 type ModalProps = {
     close: () => void;
@@ -13,19 +13,14 @@ type ModalProps = {
 type ModalValue = TodoType;
 
 const Modal: React.FC<ModalProps> = ({ close }) => {
-    const { setTodoList } = useLocalTodoList();
+    const { todoList, setTodoList } = useContext(LocalTodoListContext);
 
     const onClickSubmit = (values: Omit<ModalValue, 'timestamp'>) => {
-        setTodoList(todoList => [...todoList, {
+        setTodoList([...todoList, {
             ...values,
             priority: +(values.priority || '0'),
             timestamp: new Date(),
         }]);
-        console.log({
-            ...values,
-            priority: +(values.priority || '0'),
-            timestamp: new Date(),
-        });
     }
 
     return (

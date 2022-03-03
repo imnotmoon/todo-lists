@@ -10,7 +10,9 @@ type TodoListItemProps = {
 const TodoListItem: React.FC<TodoListItemProps> = ({ item }) => {
     return (
         <div className='todoitem'>
-            <div>{item.title}</div>
+            <div className='todoitem-title'>{item.title}</div>
+            <div className='todoitem-content'>{item.content}</div>
+            <div className='todoitem-date'>{item.timestamp.toString()}</div>
         </div>
     );
 }

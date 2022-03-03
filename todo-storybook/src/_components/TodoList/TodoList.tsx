@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useReducer} from 'react';
+import './TodoList.style.scss';
 
-// import  { useTodoListContext } from "../TodoListContext/TodoListContext";
 import { LocalTodoListContext } from "../TodoListContext";
 import { TodoType } from "./TodoList.type";
 import TodoListItem from "./Item/TodoListItem";
@@ -27,7 +27,7 @@ const TodoList: React.FC<TodoListProps> = ({}) => {
     return (
         <>
             <div>
-                <div>
+                <div className='todolist-buttonframe'>
                     <Button label='할일 추가' onClick={onClickButton}/>
                 </div>
                 <section>

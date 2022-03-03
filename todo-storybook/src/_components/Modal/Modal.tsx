@@ -21,6 +21,7 @@ const Modal: React.FC<ModalProps> = ({ close }) => {
             priority: +(values.priority || '0'),
             timestamp: new Date(),
         }]);
+        close();
     }
 
     return (

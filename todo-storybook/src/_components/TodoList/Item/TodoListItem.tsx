@@ -13,6 +13,7 @@ const TodoListItem: React.FC<TodoListItemProps> = ({ item }) => {
             <div className='todoitem-title'>{item.title}</div>
             <div className='todoitem-content'>{item.content}</div>
             <div className='todoitem-date'>{item.timestamp.toString()}</div>
+            <button>삭제</button>
         </div>
     );
 }

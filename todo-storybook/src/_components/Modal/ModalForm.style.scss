@@ -17,5 +17,13 @@
     background-color: transparent;
     border: 1px solid white;
     color: white;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 }

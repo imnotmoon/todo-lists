@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Modal.style.scss';
 import { Formik, Form } from 'formik';
 
@@ -6,7 +6,7 @@ import ModalForm from "./ModalForm";
 import {TodoType} from "../TodoList/TodoList.type";
 import { LocalTodoListContext } from "../TodoListContext";
 
-type ModalProps = {
+export type ModalProps = {
     close: () => void;
 };
 
@@ -14,6 +14,14 @@ type ModalValue = TodoType;
 
 const Modal: React.FC<ModalProps> = ({ close }) => {
     const { todoList, setTodoList } = useContext(LocalTodoListContext);
+
+    useEffect(() => {
+        const onClickOutsideModal = () => {
+            close();
+        }
+        document.querySelector('body')!.addEventListener('click', onClickOutsideModal);
+        return document.querySelector('body')!.removeEventListener('click', onClickOutsideModal);
+    }, [])
 
     const onClickSubmit = (values: Omit<ModalValue, 'timestamp'>) => {
         setTodoList([...todoList, {

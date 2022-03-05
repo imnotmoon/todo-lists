@@ -3,7 +3,7 @@ import './TodoListItem.style.scss';
 
 import {TodoType} from "../TodoList.type";
 
-type TodoListItemProps = {
+export type TodoListItemProps = {
     item: TodoType
 };
 

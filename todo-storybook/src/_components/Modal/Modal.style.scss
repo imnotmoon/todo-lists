@@ -10,7 +10,7 @@
 
 .modal-form-window {
   width: calc(min(50vw, 800px));
-  height: calc(min(50vh, 600px));
+  height: calc(min(70vh, 600px));
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(30px);
@@ -18,9 +18,11 @@
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+  color: white;
 
   & > h3 {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
+    margin: 0;
     font-size: 1.7rem;
     font-weight: 500;
   }

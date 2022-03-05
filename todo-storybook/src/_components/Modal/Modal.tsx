@@ -5,6 +5,7 @@ import { Formik, Form } from 'formik';
 import ModalForm from "./ModalForm";
 import {TodoType} from "../TodoList/TodoList.type";
 import { LocalTodoListContext } from "../TodoListContext";
+import {formatDate} from "../utils/date";
 
 export type ModalProps = {
     close: () => void;
@@ -23,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ close }) => {
         return document.querySelector('body')!.removeEventListener('click', onClickOutsideModal);
     }, [])
 
-    const onClickSubmit = (values: Omit<ModalValue, 'timestamp'>) => {
+    const onClickSubmit = (values: Omit<ModalValue, 'timestamp'> & { due: Date | string }) => {
         setTodoList([...todoList, {
             ...values,
             priority: +(values.priority || '0'),
@@ -39,7 +40,7 @@ const Modal: React.FC<ModalProps> = ({ close }) => {
                   title: '',
                   content: '',
                   date: new Date(),
-                  due: new Date(),
+                  due: formatDate(new Date()),
                   priority: 0
               }}
               onSubmit={onClickSubmit}

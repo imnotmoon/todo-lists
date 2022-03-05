@@ -5,6 +5,7 @@ import {TodoType} from "../TodoList/TodoList.type";
 
 type TodoListContextProps = {
     children: React.ReactNode;
+    initialValue?: TodoType[];
 };
 
 type TodoListContextType = {
@@ -17,8 +18,12 @@ export const LocalTodoListContext = createContext<TodoListContextType>({
     setTodoList: () => {}
 });
 
-const TodoListContext: React.FC<TodoListContextProps> = ({ children }) => {
+const TodoListContext: React.FC<TodoListContextProps> = ({ children, initialValue }) => {
     const { todoList, setTodoList } = useLocalTodoList();
+
+    useEffect(() => {
+        initialValue && setTodoList(initialValue);
+    }, [])
 
     return (
         <LocalTodoListContext.Provider value={{todoList, setTodoList}}>

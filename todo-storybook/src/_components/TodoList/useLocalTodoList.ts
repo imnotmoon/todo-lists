@@ -6,8 +6,14 @@ const useLocalTodoList = () => {
     const [todoList, setTodoList] = useState<TodoType[]>([]);
 
     useEffect(() => {
-        localStorage.setItem('@todolist', JSON.stringify(todoList));
-    }, [todoList]);
+        if(!localStorage.getItem('@todolist')) {
+            localStorage.setItem('@todolist', JSON.stringify([]));
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log(todoList);
+    }, [todoList])
 
     const mutateTodoList = (todoList: TodoType[]) => {
         setTodoList(todoList);

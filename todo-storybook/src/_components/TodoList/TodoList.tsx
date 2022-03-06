@@ -31,8 +31,8 @@ const TodoList: React.FC<TodoListProps> = ({}) => {
                     <Button label='할일 추가' onClick={onClickButton}/>
                 </div>
                 <section>
-                    {todoList.map((todoItem: TodoType) => {
-                        return <TodoListItem item={todoItem} key={todoItem.title +todoItem.timestamp.toString()}/>;
+                    {todoList.map((todoItem: TodoType, idx) => {
+                        return <TodoListItem item={todoItem} key={idx} idx={idx}/>;
                     })}
                 </section>
             </div>

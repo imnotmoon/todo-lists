@@ -7,7 +7,12 @@ const useLocalTodoList = () => {
 
     useEffect(() => {
         localStorage.setItem('@todolist', JSON.stringify(todoList));
-    }, [todoList])
+    }, [todoList]);
+
+    const mutateTodoList = (todoList: TodoType[]) => {
+        setTodoList(todoList);
+        localStorage.setItem('@todolist', JSON.stringify(todoList));
+    }
 
     useEffect(() => {
         const localStorageTodoItems = localStorage.getItem('@todolist');
@@ -15,12 +20,13 @@ const useLocalTodoList = () => {
         if(!localStorageTodoItems || localStorageTodoItems.length === 0) {
             localStorage.setItem('@todolist', JSON.stringify(todoList));
         } else {
-            (JSON.parse(localStorageTodoItems) as TodoType[]).length !== todoList.length
-                && setTodoList(JSON.parse(localStorageTodoItems));
+            (JSON.parse(localStorageTodoItems) as TodoType[]).length > todoList.length
+                ? setTodoList(JSON.parse(localStorageTodoItems))
+                : localStorage.setItem('@todolist', JSON.stringify(todoList));
         }
     }, [todoList, setTodoList]);
 
-    return {todoList, setTodoList};
+    return {todoList, setTodoList : mutateTodoList};
 }
 
 export default useLocalTodoList;
